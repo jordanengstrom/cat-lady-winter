@@ -7,6 +7,7 @@ function Cat(name, age, img) {
     this.pets = 0
     this.happiness = ["moody", "happy", "bitey"]
     this.img = img
+    this.snacks = 0
 }
 
 function getHappiness(cat){
@@ -40,17 +41,24 @@ function draw(arr){
             <p>${cat.age}</p>
             <h3>Happiness:</h3>
             <p>${getHappiness(cat)}</p>
-            <button onclick="petMe(${i})">Pet Me!</button>
+            <button onclick="petMe(${i})">Pet me!</button>
+            <button onclick="treats(${i})">Give me treats!</button>
         </div>
         `
     }
     catElem.innerHTML = template
 }
 
-// Helper function
+// Helper functions
 function petMe(index){
     var cat = cats[index]
     cat.pets++
+    draw(cats)
+}
+
+function treats(index){
+    var cat = cats[index]
+    cat.pets = 0
     draw(cats)
 }
 
